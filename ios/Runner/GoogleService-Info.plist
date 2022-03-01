@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>143630103525-ol94gh42qrma7r57fgu8ck3m2e53r0jq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.143630103525-ol94gh42qrma7r57fgu8ck3m2e53r0jq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>143630103525-73ehb0nujk49lfoptbbi9kc4pi97naka.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAnNgQNZjTq54sN-KF-v94UUch8eKuNSw0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>143630103525</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lumi.achat</string>
+	<key>PROJECT_ID</key>
+	<string>achat-d2901</string>
+	<key>STORAGE_BUCKET</key>
+	<string>achat-d2901.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:143630103525:ios:9427e892db2ab9141cf50c</string>
+</dict>
+</plist>

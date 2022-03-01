@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "143630103525",
+    "project_id": "achat-d2901",
+    "storage_bucket": "achat-d2901.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143630103525:android:d1a8bd1554dd98bc1cf50c",
+        "android_client_info": {
+          "package_name": "com.lumi.achat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143630103525-73ehb0nujk49lfoptbbi9kc4pi97naka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lumi.achat",
+            "certificate_hash": "3b25e437e11048cba22e0856c5367fa99b2d3f79"
+          }
+        },
+        {
+          "client_id": "143630103525-6dugk6rduhbjqjmibfbbims5ql6ng1av.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSdtZm7ajb25Apxm6INcWTi2MUGD8xqNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143630103525-6dugk6rduhbjqjmibfbbims5ql6ng1av.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
