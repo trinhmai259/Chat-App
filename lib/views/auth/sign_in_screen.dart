@@ -24,7 +24,7 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   HeaderSignIn(),
                   BodySignIn(
                       emailEditingController: emailEditingController,

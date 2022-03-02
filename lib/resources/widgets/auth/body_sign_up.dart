@@ -41,7 +41,7 @@ class _BodySignUpState extends State<BodySignUp> {
       key: widget.formKey,
       child: Column(
         children: [
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           InkWell(
             onTap: () {
               Utils.showPickImageModelBottomSheet(context,
@@ -73,27 +73,27 @@ class _BodySignUpState extends State<BodySignUp> {
                     ),
             ),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           AuthTextInput(
             controller: widget.nameEditingController,
             lableText: "Name",
             keyboardType: TextInputType.name,
             textCapitalization: TextCapitalization.words,
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           AuthTextInput(
             controller: widget.emailEditingController,
             lableText: "Email",
             keyboardType: TextInputType.emailAddress,
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           AuthTextInput(
             controller: widget.passwordEditingController,
             lableText: "Password",
             keyboardType: TextInputType.text,
             obscure: true,
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           AuthTextInput(
             controller: widget.confirmPasswordEditingController,
             lableText: "Confirm Password",
@@ -109,7 +109,7 @@ class _BodySignUpState extends State<BodySignUp> {
               }
             },
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           AuthButton(
               onTap: () async {
                 if (widget.formKey.currentState!.validate()) {

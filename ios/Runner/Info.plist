@@ -10,6 +10,13 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>NSAppTransportSecurity</key>  
+    <dict>  
+        <key>NSAllowsArbitraryLoads</key>
+		<true/>  
+    </dict>  
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>App need your agree, can visit your album</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

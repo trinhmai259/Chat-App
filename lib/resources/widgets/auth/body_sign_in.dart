@@ -29,14 +29,14 @@ class BodySignIn extends StatelessWidget {
             lableText: "Email",
             keyboardType: TextInputType.emailAddress,
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           AuthTextInput(
             controller: passwordEditingController,
             lableText: "Password",
             keyboardType: TextInputType.text,
             obscure: true,
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           AuthButton(
               onTap: () {
                 context
@@ -46,7 +46,7 @@ class BodySignIn extends StatelessWidget {
                         password: passwordEditingController.text.trim());
               },
               title: "Sign In"),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             children: [
               Text(
@@ -64,10 +64,10 @@ class BodySignIn extends StatelessWidget {
                   ))
             ],
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Row(
             children: [
-              Expanded(child: Divider(color: secondaryColor)),
+              const Expanded(child: Divider(color: secondaryColor)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 18),
                 child: Text(
@@ -75,10 +75,10 @@ class BodySignIn extends StatelessWidget {
                   style: txtBold(16),
                 ),
               ),
-              Expanded(child: Divider(color: secondaryColor)),
+              const Expanded(child: Divider(color: secondaryColor)),
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           InkWell(
             onTap: () async {
               await context.read<FirebaseAuthController>().signInWithGoogle();
@@ -89,7 +89,7 @@ class BodySignIn extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: secondaryColor, width: 0.5)),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 11),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
                 child: Row(
                   children: [
                     SvgPicture.asset(

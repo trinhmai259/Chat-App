@@ -41,7 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ),
         if (context.watch<FirebaseAuthController>().isLoading)
-          Center(
+          const Center(
             child: CircularProgressIndicator(),
           )
       ],

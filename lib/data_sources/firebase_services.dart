@@ -2,8 +2,11 @@ import 'dart:io';
 
 import 'package:achat/data_sources/firebase_repository.dart';
 import 'package:achat/models/app_user.dart';
+import 'package:achat/models/message.dart';
+import 'package:achat/models/room_chat.dart';
 import 'package:achat/resources/strings.dart';
 import 'package:achat/resources/utils/utils.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:uuid/uuid.dart';
@@ -129,5 +132,92 @@ class FirebaseServices {
     } on FirebaseException catch (e) {
       Utils.showToast(e.message ?? "");
     }
+  }
+
+  Future sendMessage(
+      {required RoomChat roomChat, required Message message}) async {
+    await firebaseRepository.firestore
+        .collection("chats")
+        .doc(roomChat.id)
+        .collection("messages")
+        .doc(message.id)
+        .set(message.toJson());
+    await firebaseRepository.firestore
+        .collection("chats")
+        .doc(roomChat.id)
+        .set(roomChat.toJson());
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getStreamMessage(
+      String idRoomChat) async* {
+    yield* firebaseRepository.firestore
+        .collection("chats")
+        .doc(idRoomChat)
+        .collection("messages")
+        .orderBy("time_stamp", descending: true)
+        .snapshots();
+  }
+
+  Future<String?> getIdRoomChat(String senderId, String recieverId) async {
+    final snapshot =
+        await firebaseRepository.firestore.collection("chats").get();
+    for (var doc in snapshot.docs) {
+      List<dynamic> membersId = doc.get("members_id");
+      if (membersId.any((element) => element == senderId) &&
+          membersId.any((element) => element == recieverId)) {
+        return doc.get("id");
+      }
+    }
+  }
+
+  Future<String?> uploadFileMessage(String userId, File file) async {
+    String fileName = Uuid().v4();
+    try {
+      final uploaTask = await firebaseRepository.firebaseStorage
+          .ref('message/$userId/$fileName')
+          .putFile(file);
+      return uploaTask.ref.getDownloadURL();
+    } on FirebaseException catch (e) {
+      Utils.showToast(e.message ?? "");
+    }
+  }
+
+  Future updateMessageMedias(
+      List<String> medias, String roomChatId, String messageId) async {
+    await firebaseRepository.firestore
+        .collection("chats")
+        .doc(roomChatId)
+        .collection("messages")
+        .doc(messageId)
+        .update({"medias": medias});
+  }
+
+  Stream<DocumentSnapshot<Map<String, dynamic>>> getStreamUser(
+      String uid) async* {
+    yield* firebaseRepository.firestore
+        .collection("users")
+        .doc(uid)
+        .snapshots();
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getStreamRoomChat(
+      String userId) async* {
+    yield* firebaseRepository.firestore
+        .collection("chats")
+        .where("members_id", arrayContains: userId)
+        .snapshots();
+  }
+
+  Future<List<AppUser>> searchUser(String uid) async {
+    List<AppUser> listUser = [];
+    final snapshot =
+        await firebaseRepository.firestore.collection("users").get();
+    for (var doc in snapshot.docs) {
+      if (doc.id != uid) {
+        print(doc.data());
+        listUser.add(AppUser.fromJson(doc.data()));
+      }
+    }
+    return listUser;
   }
 }
