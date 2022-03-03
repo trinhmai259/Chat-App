@@ -91,4 +91,14 @@ class Utils {
       }
     }
   }
+
+  static String userName(String email) {
+    String e = email;
+    if (email.isNotEmpty) {
+      List<String> l = e.split("@");
+      return "@${l[0]}";
+    } else {
+      return "";
+    }
+  }
 }

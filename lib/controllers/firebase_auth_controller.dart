@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'package:achat/data_sources/firebase_services.dart';
 import 'package:achat/models/app_user.dart';
+import 'package:achat/resources/utils/utils.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 enum AuthStatus { none, authenticate, unauthenticate }
@@ -78,6 +80,25 @@ class FirebaseAuthController with ChangeNotifier {
     _loading();
     await _firebaseServices.signOut();
     _unLoading();
+  }
+
+  Future<bool> updateUser(
+      {required String displayName, required File? avatar}) async {
+    _loading();
+    try {
+      await _firebaseServices.UpdateUser(
+          userId: appUser!.uid!,
+          displayName:
+              displayName.isEmpty ? appUser!.displayName! : displayName);
+      appUser = await _firebaseServices.getUser(appUser!.uid!);
+      Utils.showToast("Cập thông tin người dùng thành công!");
+      _unLoading();
+      return true;
+    } on FirebaseException catch (e) {
+      _unLoading();
+      Utils.showToast(e.message ?? "");
+      return false;
+    }
   }
 
   _loading() {

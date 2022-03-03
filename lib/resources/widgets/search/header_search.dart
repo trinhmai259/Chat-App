@@ -22,17 +22,17 @@ class HeaderSearch extends StatelessWidget {
             child: SvgPicture.asset(backIcon,
                 width: 30, height: 30, color: primaryColor),
           ),
-          SizedBox(
+          const SizedBox(
             width: 16,
           ),
           Expanded(
               child: TextField(
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
             autofocus: true,
             onChanged: (val) {
               context.read<SearchController>().searchUser(val);
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 hintText: "Search",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: UnderlineInputBorder(borderSide: BorderSide.none)),

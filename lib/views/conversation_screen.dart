@@ -10,6 +10,7 @@ import 'package:achat/resources/widgets/conversation/message_item.dart';
 import 'package:achat/resources/widgets/conversation/option_item.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_manager/photo_manager.dart';
 import 'package:provider/provider.dart';
 
 class ConversationScreen extends StatefulWidget {

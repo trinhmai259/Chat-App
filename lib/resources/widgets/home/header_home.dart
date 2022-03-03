@@ -2,6 +2,7 @@ import 'package:achat/controllers/firebase_auth_controller.dart';
 import 'package:achat/models/app_user.dart';
 import 'package:achat/resources/constants.dart';
 import 'package:achat/resources/utils/utils.dart';
+import 'package:achat/views/change_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/src/provider.dart';
@@ -43,11 +44,8 @@ class HeaderHome extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           onSelected: (val) {
             if (val == 0) {
-              /*
               Navigator.push(context,
                   MaterialPageRoute(builder: (_) => ChangeProfileScreen()));
-               */
-
             } else {
               context.read<FirebaseAuthController>().signOut();
             }

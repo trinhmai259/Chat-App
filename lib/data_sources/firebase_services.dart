@@ -125,10 +125,10 @@ class FirebaseServices {
   Future<String?> uploadFile(String userId, File file) async {
     String fileName = Uuid().v4();
     try {
-      final uploaTask = await firebaseRepository.firebaseStorage
+      final uploadTask = await firebaseRepository.firebaseStorage
           .ref('users/$userId/$fileName.jpg')
           .putFile(file);
-      return uploaTask.ref.getDownloadURL();
+      return uploadTask.ref.getDownloadURL();
     } on FirebaseException catch (e) {
       Utils.showToast(e.message ?? "");
     }
@@ -173,10 +173,10 @@ class FirebaseServices {
   Future<String?> uploadFileMessage(String userId, File file) async {
     String fileName = Uuid().v4();
     try {
-      final uploaTask = await firebaseRepository.firebaseStorage
+      final uploadTask = await firebaseRepository.firebaseStorage
           .ref('message/$userId/$fileName')
           .putFile(file);
-      return uploaTask.ref.getDownloadURL();
+      return uploadTask.ref.getDownloadURL();
     } on FirebaseException catch (e) {
       Utils.showToast(e.message ?? "");
     }
@@ -219,5 +219,23 @@ class FirebaseServices {
       }
     }
     return listUser;
+  }
+
+  Future UpdateUser(
+      {required String userId,
+      required String displayName,
+      File? avatar}) async {
+    if (avatar != null) {
+      String? photoUrl = await uploadFile(userId, avatar);
+      await firebaseRepository.firestore
+          .collection("users")
+          .doc(userId)
+          .update({"display_name": displayName, "photo_url": photoUrl});
+    } else {
+      await firebaseRepository.firestore
+          .collection("users")
+          .doc(userId)
+          .update({"display_name": displayName});
+    }
   }
 }

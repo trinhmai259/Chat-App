@@ -1,33 +1,31 @@
+import 'package:achat/resources/constants.dart';
+import 'package:achat/resources/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../constants.dart';
-
-class HeaderSignUp extends StatelessWidget {
-  const HeaderSignUp({
+class HeaderEdit extends StatelessWidget {
+  const HeaderEdit({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       child: Row(
         children: [
           InkWell(
             onTap: () {
               Navigator.pop(context);
             },
-            child: SvgPicture.asset(
-              backIcon,
-              width: 30,
-              height: 30,
-              color: primaryColor,
-            ),
+            child: SvgPicture.asset(backIcon,
+                width: 30, height: 30, color: primaryColor),
           ),
-          const SizedBox(width: 32),
+          SizedBox(
+            width: 16,
+          ),
           Text(
-            "Create your account",
+            EDIT_PROFILE,
             style: txtSemiBold(18),
           )
         ],

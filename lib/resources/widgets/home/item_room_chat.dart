@@ -60,12 +60,12 @@ class ItemRoomChat extends StatelessWidget {
                                 ? null
                                 : Text(
                                     Utils.nameInit(receiver.displayName ?? ""),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.blue)),
                           ),
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
                           Expanded(
                               child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,9 +96,7 @@ class ItemRoomChat extends StatelessWidget {
                                   Expanded(flex: 1, child: Container())
                                 ],
                               ),
-                              SizedBox(
-                                height: 8,
-                              ),
+                              const SizedBox(height: 8),
                               Divider()
                             ],
                           ))

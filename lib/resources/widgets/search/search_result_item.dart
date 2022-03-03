@@ -23,7 +23,7 @@ class SearchResultUserItem extends StatelessWidget {
         child: appUser.photoUrl != null
             ? null
             : Text(Utils.nameInit(appUser.displayName ?? ""),
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue)),

@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
       case AuthStatus.unauthenticate:
         return SignInScreen();
       default:
-        return SplashScreen();
+        return SignInScreen();
     }
   }
 }
